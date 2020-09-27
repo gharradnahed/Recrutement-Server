@@ -17,9 +17,7 @@ import { UserService } from './user.service';
 
 @Controller()
 export class UserController {
-    constructor(
-        private userService: UserService,
-        ) { };
+    constructor( private userService: UserService) { };
     @Get('/api/user')
     showAllUsers() {
         return this.userService.showAll();
@@ -27,7 +25,7 @@ export class UserController {
 
 
 
-    
+   
     @Post('/api/register')
 
     @UsePipes(new ValidationPipe())

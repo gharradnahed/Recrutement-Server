@@ -1,7 +1,7 @@
 interface OffreDTO{
-    
+    id:number;
     description: string;
  
-    specialite_demmandée: string;
+    specialite: string;
 
-    type_offre: string;}
+    typeOffre: string;}

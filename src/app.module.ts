@@ -7,6 +7,7 @@ import { Connection } from 'typeorm';
 import { UserModule } from './user/user.module';
 import { User } from './user/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { OffreModule } from './offre/offre.module';
 
 
 @Module({
@@ -20,7 +21,7 @@ import { AuthModule } from './auth/auth.module';
     logging:true,
     entities: ["dist/**/*.entity{.ts,.js}"],
     synchronize: true,
-  }), UserModule, AuthModule],
+  }), UserModule, AuthModule,OffreModule],
   
   controllers: [AppController],
   providers: [AppService],

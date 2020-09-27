@@ -9,10 +9,10 @@ export class Offre {
   description: string;
   @Column()
 
-    specialite_demmandée: string;
+    specialite: string;
     @Column()
 
-    type_offre: string;
+    typeOffre: string;
 
-  
+
 }

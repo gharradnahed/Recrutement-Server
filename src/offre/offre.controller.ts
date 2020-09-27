@@ -4,12 +4,12 @@ import { OffreService } from './offre.service';
 @Controller('offre')
 export class OffreController {
     constructor(private offreService: OffreService) { };
-    @Get()
+    @Get('/api/getoffre')
     showAllUsers() {
         return this.offreService.showAll();
     }
-    @Post()
-    createUserr(@Body() data: OffreDTO) {
+    @Post('/api/postOffre')
+    createUserr(@Body()  data: OffreDTO) {
         return this.offreService.createUser(data);
     }
     @Get(':id')
