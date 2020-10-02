@@ -9,10 +9,11 @@ import {
 } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { AuthService } from 'src/auth/auth.service';
+import { JwtAuthGuard } from 'src/auth/jwt-guard';
+import { Any } from 'typeorm';
 import { LocalAuthGuard } from '../auth/local-auth-guard';
 import { UserDTO, UserRd } from './user.dto';
 import { UserService } from './user.service';
-
 
 
 @Controller()
@@ -33,15 +34,26 @@ export class UserController {
         return this.userService.register(data);
     }
 
-    /*@Put(':id')
-    updateUSer(@Param('id') id: number, @Body() data: UserDTO) {
-        return this.userService.updateUser(id, data);
-    }*/
+    //@Post('')
+  ////  resetPassword(@Param('id') id: number, @Body() data: UserDTO) {
+    //    return this.AuthService.resetPassword(id, data);
+    //}
     @Delete(':id')
     deleteUser(@Param('id') id: number) {
         return this.userService.deleteUser(id);
     }
+    @Post('/api/byemail')
+    @UseGuards(JwtAuthGuard) 
+    showByEmail(@Body() data:any){
+        return this.userService.findbyEmail(data.email);
 
+    }
+
+    @Post('/api/forgot')
+    forgotpass(@Body() data: any){
+        return this.userService.forgotpassword(data.secret,data.newPassword,data.email)
+
+    }
 
 }
 

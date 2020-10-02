@@ -39,9 +39,18 @@ export class UserService {
 
     }
 
-
+    async forgotpassword(secret: any, newPassword: any,email: any){
+        const user= await this.userRepository.findOne({email: email})
+        const secretAnswer= user.secret;
+        if(secretAnswer===secret){
+            user.password=newPassword;
+            await this.userRepository.save(user)
+            return true
+        }
+        return false
+    }
     async findbyEmail(email: string) {
-        return await this.userRepository.findOne({email});
+        return await  this.userRepository.findOne({email});
     }
 
     async getAllEntreprises() {
@@ -51,5 +60,7 @@ export class UserService {
     async getAllUsers() {
         return await this.userRepository.find({type: "USER"})
     }
-    
+    async forgotPassword(){
+        
+    }
 }

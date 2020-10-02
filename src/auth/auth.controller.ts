@@ -1,10 +1,10 @@
 
 import { Body, Controller, Delete, Get, Param, Post, Put, Request, UseGuards } from '@nestjs/common';
+import { User } from 'src/user/user.entity';
 import { AuthService } from './auth.service';
 import { JwtAuthGuard } from './jwt-guard';
 import { JwtStrategy } from './jwt.strategy';
 import { LocalAuthGuard } from './local-auth-guard';
-
 @Controller()
 export class AuthController {
     constructor(private authService: AuthService) { };
@@ -20,6 +20,8 @@ export class AuthController {
     test() {
         return "Hello"
     }
+  
+   
 }
 
 

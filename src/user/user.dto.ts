@@ -1,4 +1,5 @@
 import { IsNotEmpty } from 'class-validator'
+import { Column } from 'typeorm';
 export class UserDTO {
     nom: string;
     prenom: string;
@@ -11,6 +12,8 @@ export class UserDTO {
     state: string;
     specialite: string;
     password: string;
+    secret: string;
+    questionNumber: string;
 }
 
 
@@ -22,4 +25,9 @@ export class UserRd {
 
     @IsNotEmpty()
     password: string;
+}
+
+export class UserID {
+
+    id:number
 }
