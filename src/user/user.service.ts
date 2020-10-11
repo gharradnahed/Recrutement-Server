@@ -60,7 +60,5 @@ export class UserService {
     async getAllUsers() {
         return await this.userRepository.find({type: "USER"})
     }
-    async forgotPassword(){
-        
-    }
+   
 }

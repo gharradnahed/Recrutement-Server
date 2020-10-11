@@ -43,7 +43,7 @@ export class UserController {
         return this.userService.deleteUser(id);
     }
     @Post('/api/byemail')
-    @UseGuards(JwtAuthGuard) 
+    //@UseGuards(JwtAuthGuard) 
     showByEmail(@Body() data:any){
         return this.userService.findbyEmail(data.email);
 

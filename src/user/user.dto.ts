@@ -13,7 +13,6 @@ export class UserDTO {
     specialite: string;
     password: string;
     secret: string;
-    questionNumber: string;
 }
 
 

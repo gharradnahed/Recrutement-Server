@@ -20,6 +20,10 @@ export class OffreController {
     async createUserr(  @Body()  data: any) {
         return this.offreService.createUser(data);
     }
+    @Delete('/api/deleteoffre/:id')
+    async deleteOffre(@Param('id') id: string){
+        return this.offreService.deleteOffre(id)
+    }
   //  @Post()
 //@UseGuards(JwtAuthenticationGuard)
 //async createPost(@Body() post: CreatePostDto, @Req() req: RequestWithUser) {
